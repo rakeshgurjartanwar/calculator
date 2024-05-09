@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="calculator_container">
+            <div class="result_box">
+                <div class="result"></div>
+            </div>
+            <div class="button">
+                <button id="ac">AC</button>
+                <button id="calc_btn">%</button>
+                <button class="btn btn-success">DL</button>
+                <button class="eqale" id="calc_btn">/</button>
+            </div>
+            <div class="button">
+                <button id="calc_btn">7</button>
+                <button id="calc_btn">8</button>
+                <button id="calc_btn">9</button>
+                <button id="calc_btn" class="eqale">*</button>
+            </div>
+            <div class="button">
+                <button id="calc_btn">4</button>
+                <button id="calc_btn">5</button>
+                <button id="calc_btn">6</button>
+                <button id="calc_btn" class="eqale">-</button>
+            </div>
+            <div class="button">
+                <button id="calc_btn">1</button>
+                <button id="calc_btn">2</button>
+                <button id="calc_btn">3</button>
+                <button id="calc_btn" class="eqale">+</button>
+            </div>
+            <div class="button">
+                <button id="calc_btn">00</button>
+                <button id="calc_btn">0</button>
+                <button id="calc_btn">.</button>
+                <button id="eqale" class="eqale">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const input_box = document.querySelector("#input_box")
+        const calc_btn = document.querySelectorAll("#calc_btn")
+        const ac = document.querySelector("#ac")
+        const eqale = document.querySelector("#eqale")
+        const result = document.querySelector(".result")
+        
+        for (let index = 0; index < calc_btn.length; index++) {
+            const element = calc_btn[index];
+            element.onclick = (e) => {
+                var btn_text = e.target.innerText;
+                result.innerText += btn_text;
+            }
+        }
+        eqale.onclick = () => {
+            var math_result = eval(result.innerText)
+            result.innerText=math_result;
+        }
+        ac.onclick=()=>{
+            result.innerText=""
+        }
+    </script>
+</body>
+
+</html>
